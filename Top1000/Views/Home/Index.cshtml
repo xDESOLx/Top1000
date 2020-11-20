@@ -1,0 +1,24 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Top1000";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nazwa tagu</th>
+            <th scope="col">Liczba użyć</th>
+            <th scope="col">Procentowy udział w pobranej próbce danych</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model.Tags)
+        {
+            <tr>
+                <td>@tag.Name</td>
+                <td>@tag.Count</td>
+                <td>@(((double)tag.Count / (double)Model.TotalTagUsage).ToString("P"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
